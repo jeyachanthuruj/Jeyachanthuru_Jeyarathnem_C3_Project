@@ -79,7 +79,7 @@ class RestaurantTest {
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     @Test
-    public void get_total_price_should_total_price_for_valid_item_name_list() throws ExecutionControl.NotImplementedException {
+    public void get_total_price_should_total_price_for_valid_item_name_list() {
         List<String> _list = new ArrayList<String>();
         _list.add("Sweet corn soup");
         _list.add("Vegetable lasagne");

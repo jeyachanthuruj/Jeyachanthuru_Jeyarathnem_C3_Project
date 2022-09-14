@@ -1,9 +1,9 @@
 import jdk.jshell.spi.ExecutionControl;
-
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Restaurant {
     private String name;
@@ -19,8 +19,12 @@ public class Restaurant {
         this.closingTime = closingTime;
     }
 
-    public int getTotal(List<String> itemNames) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException("getTotal is not implemented.");
+    public int getTotal(List<String> itemNames) {
+        int _sum = 0;
+        for (String _item: itemNames) {
+            _sum += findItemByName(_item).getPrice();
+        }
+        return _sum;
     }
 
     public boolean isRestaurantOpen() {
