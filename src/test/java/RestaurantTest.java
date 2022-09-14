@@ -1,7 +1,10 @@
+import jdk.jshell.spi.ExecutionControl;
 import org.junit.jupiter.api.*;
 import java.time.LocalTime;
 import org.mockito.Mockito;
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import java.util.List;
 
 class RestaurantTest {
     Restaurant restaurant;
@@ -74,4 +77,19 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    @Test
+    public void get_total_price_should_total_price_for_valid_item_name_list() throws ExecutionControl.NotImplementedException {
+        List<String> _list = new ArrayList<String>();
+        _list.add("Sweet corn soup");
+        _list.add("Vegetable lasagne");
+
+        int _total = 119 + 269;
+        assertEquals(restaurant.getTotal(_list), _total);
+
+        restaurant.addToMenu("Sizzling brownie", 319);
+        _list.add("Sizzling brownie");
+        _total = 119 + 269 + 319;
+        assertEquals(restaurant.getTotal(_list), _total);
+    }
 }

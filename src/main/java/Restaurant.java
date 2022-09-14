@@ -1,3 +1,5 @@
+import jdk.jshell.spi.ExecutionControl;
+
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -15,6 +17,10 @@ public class Restaurant {
         this.location = location;
         this.openingTime = openingTime;
         this.closingTime = closingTime;
+    }
+
+    public int getTotal(List<String> itemNames) throws ExecutionControl.NotImplementedException {
+        throw new ExecutionControl.NotImplementedException("getTotal is not implemented.");
     }
 
     public boolean isRestaurantOpen() {
